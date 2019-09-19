@@ -44,7 +44,7 @@ $(document).ready(function() {
         }
 
         else if (err.response.data.message.name === 'ValidationError') {
-          showAlert('error', 'password and confirm password are not the same!');
+          showAlert('error', err.response.data.message.message.split(":")[2]);
         }
       });
   });
