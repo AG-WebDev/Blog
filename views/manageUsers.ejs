@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/alertify.custom.css" id="toggleCSS" />
+    <link rel="stylesheet" href="/css/alertify.core.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <script src="/js/alert/alertify.min.js"></script>
+
+    <title>Article Blog | <%= title %></title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <% include header %>
+
+    <!-- CONTENT -->
+    <main style="margin: 150px auto; ">
+      <table>
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Gender</th>
+            <th>Mobile</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user => { %>
+          <tr>
+            <td>
+              <img
+                class="form__user-photo"
+                src="/img/users/<%= user.photo %>"
+                alt="User photo"
+              />
+            </td>
+            <td><%= user.firstName %></td>
+            <td><%= user.lastName %></td>
+            <td><%= user.username %></td>
+            <td><%= user.gender %></td>
+            <td><%= user.mobile %></td>
+            <td>
+              <button
+                id="delete-<%= user.id %>"
+                class="btn btn--red btn--verySmall"
+              >
+                Delete
+              </button>
+              <button
+                id="<%= user.mobile %>-<%= user.id %>"
+                class="btn btn--blue btn--verySmall"
+              >
+                Password Recovery
+              </button>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="/js/manageUsers.js"></script>
+  </body>
+</html>

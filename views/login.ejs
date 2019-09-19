@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,700" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Article Blog | <%= title %></title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <% include header %>
+
+    <!-- CONTENT -->
+    
+    <main class="main">
+    <div class="login-form">
+      <h2 class="heading-secondary ma-bt-lg">Log into your account</h2>
+      <form class="form">
+        <div class=".form__group">
+            <label class="form__label" for='username'>Username</label>
+            <input name="username" id="username" type="text" class="form__input" placeholder='Your Username' required>
+        </div>
+        <div class=".form__group ma-bt-md">
+                <label class="form__label" for='password'>Password</label>
+                <input name="password" id="password" type="password" class="form__input" placeholder='••••••••' minlength='8' required>
+            </div> 
+        <div class="form__group"></div>
+          <button id="submit" class="btn btn--green">Login</button>
+        </form>
+        </div>
+        </main>
+    <!-- FOOTER -->
+    <% include footer %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

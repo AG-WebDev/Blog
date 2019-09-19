@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <title>Article Blog | <%= title %></title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <% include header %>
+
+    <!-- CONTENT -->
+    <main class="main">
+      <div class="createNewArticle-form">
+        <h2 class="heading-secondary ma-bt-md">Edit Article</h2>
+        <form class="form editArticle-form">
+          <div class="form__group">
+            <label class="form__label" for="title">Title</label>
+            <input
+              class="form__input"
+              id="title"
+              type="text"
+              required
+              minlength="10"
+              maxlength="40"
+              name="firstName"
+              value="<%= article[0].title %>"
+            />
+          </div>
+          <div class="form__group ma-bt-md">
+            <label class="form__label" for="context">Context</label>
+            <textarea
+              class="form__input"
+              id="context"
+              maxlength="10000"
+              minlength="1000"
+              rows="40"
+              required
+              name="lastName"
+            ><%= article[0].context %></textarea>
+          </div>
+          <div class="form__group form__photo-upload">
+            <input
+              class="form__upload"
+              type="file"
+              accept="image/*"
+              id="imageCover"
+              name="imageCover"
+            />
+            <label for="imageCover" style="padding: 20px 50px; background-color: rgb(106, 218, 158); color: white" >Choose Article Image Cover</label>
+          </div>
+          <div class="form__group right">
+            <button id="<%= article[0].id %>" class="btn btn--medium btn--green">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="/js/editArticle.js"></script>
+  </body>
+</html>

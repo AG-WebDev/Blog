@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,700" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Error Page</title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <% include header %>
+
+    <!-- CONTENT -->
+    
+        <div class="error">
+            <div class="error__title">
+                <h2 class="heading-secondary heading-secondary--error">OH! SOMETHING WENT WRONG!</h2>
+            </div>
+            <div class="error__msg"><%= msg %></div>
+        </div>
+    
+    
+        <!-- <% include footer %> -->
+  </body>
+</html>

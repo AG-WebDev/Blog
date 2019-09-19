@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Article Blog | <%= title %></title>
+  </head>
+
+  <body>
+    <!-- HEADER-->
+    <% include header %>
+
+    <!-- CONTENT-->
+    <main class="main">
+      <div class="signup-form">
+        <h2 class="heading-secondary ma-bt-lg">Create your account!</h2>
+        <form class="form form--signup">
+          <div class="form__group">
+            <label class="form__label " for="firstName">Your First Name</label
+            ><input
+              class="form__input"
+              id="firstName"
+              type="text"
+              placeholder="FIRST NAME"
+              required
+            />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="lastName">Your Last Name</label
+            ><input
+              class="form__input"
+              id="lastName"
+              type="text"
+              placeholder="LAST NAME"
+              required
+            />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="username">Your Username</label
+            ><input
+              class="form__input"
+              id="username"
+              type="text"
+              placeholder="USERNAME"
+              required
+            />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="mobile">Your Mobile</label
+            ><input
+              class="form__input"
+              id="mobile"
+              type="text"
+              placeholder="MOBILE"
+              required
+            />
+          </div>
+          <div class="form__group">
+                <label class="form__label-radio"> Gender: </label>
+              <label class="form__label--radio"
+                ><input id="male" value="male" type="radio" name="gender"
+              /> Male</label>
+              <label class="form__label--radio"
+                ><input id="female" value="female" type="radio" name="gender"
+              /> Female</label>
+              <label class="form__label--radio"
+                ><input id="other" value="other" type="radio" name="gender"
+              /> Other</label>
+            
+          </div>
+          <div class="form__group ma-bt-md">
+            <label class="form__label" for="password">Password</label
+            ><input
+              class="form__input"
+              id="password"
+              type="password"
+              placeholder="••••••••"
+              required
+              minlength="8"
+            />
+          </div>
+          <div class="form__group ma-bt-md">
+            <label class="form__label" for="passwordConfirm"
+              >Confirm password</label
+            ><input
+              class="form__input"
+              id="passwordConfirm"
+              type="password"
+              placeholder="••••••••"
+              required
+              minlength="8"
+            />
+          </div>
+          <div class="form__group">
+            <button id="signUpBtn" class="btn btn--green">Sign up</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <!-- FOOTER-->
+    <% include footer %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="/js/signUp.js"></script>
+  </body>
+</html>

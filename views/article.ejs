@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,700"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+
+    <title>Article Blog | <%= title %></title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <% include header %>
+
+    <!-- CONTENT -->
+    <main class="main">
+      <section class="section-header">
+        <div class="header__hero">
+          <div class="header__hero-overlay">&nbsp;</div>
+          <img
+            class="header__hero-img"
+            src="/img/article-cover/<%= article[0].imageCover %>"
+            alt="The Sea Explorer"
+          />
+        </div>
+        <div class="heading-box">
+          <h1 class="heading-primary">
+            <span><%= article[0].title %></span>
+          </h1>
+          <div class="heading-box__group">
+            <div class="heading-box__detail">
+              <span class="heading-box__text"
+                >By: <%= article[0].createdBy.firstName %> <%=
+                article[0].createdBy.lastName %></span
+              >
+            </div>
+            <div class="heading-box__detail">
+              <span class="heading-box__text"
+                >At: <%= article[0].createdAt.toLocaleString('en-us', {day:
+                'numeric', month: 'long', year: 'numeric'}) %></span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-description">
+        <div class="description-box">
+          <p class="description__text">
+            <%= article[0].context %>
+          </p>
+        </div>
+      </section>
+
+      <section class="section-cta">
+        <div class="cta">
+          <div class="cta__content">
+            <h2 class="heading-secondary">
+              <%= article[0].createdBy.firstName %> <%=
+              article[0].createdBy.lastName %>
+            </h2>
+            <p class="cta__text">
+              This Article Created At <%=
+              article[0].createdAt.toLocaleString('en-us', {day: 'numeric',
+              month: 'long', year: 'numeric'}) %>
+            </p>
+            <img
+              class="cta__img cta__img--2"
+              src="/img/users/<%= article[0].createdBy.photo %>"
+              alt="Tour picture"
+            />
+          </div>
+        </div>
+      </section>
+      <h2
+        class="heading-secondary ma-bt-md"
+        style="font-size:35px ;display:block; text-align: center; padding-bottom: 70px"
+      >
+        Comments
+      </h2>
+      <section class="section-reviews">
+        <form class="addReview">
+          <div class="reviews__card">
+            <label class="form__label">
+              Please Write Your Comment :
+              <textarea  id="<%= article[0].id %>" class="form__input comment-text"
+              maxlength="1500"
+              rows="12"
+              cols="235"
+              required
+              name="commentText"></textarea>
+            </label>
+            <div class="form__group right">
+              <button class="btn btn--medium btn--green">Add</button>
+            </div>
+          </div>
+          
+        </form>
+        <div class="reviews">
+          <% article[0].comments.forEach(comment => { %>
+
+          <div class="reviews__card">
+            <div class="reviews__avatar">
+              <img
+                src="/img/users/<%= comment.author.photo %>"
+                alt="Jim Brown"
+                class="reviews__avatar-img"
+              />
+              <h6 class="reviews__user">
+                By:
+                <span class="reviews__user__detail"
+                  ><%= comment.author.username %></span
+                >
+                At:
+                <span class="reviews__user__detail"
+                  ><%= comment.createdAt.toLocaleString('en-US', { hour12: false
+                  }) %></span
+                >
+              </h6>
+            </div>
+            <p class="reviews__text">
+              <%= comment.commentText %>
+            </p>
+            <br />
+            <% if (user.role === 'admin') { %>
+            <button id="<%= comment.id %>" class="btn btn--red btn--verySmall">Delete</button>
+            <% } %>
+          </div>
+          <% }); %>
+        </div>
+      </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="/js/article.js"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<header class="header">
+  <nav class="nav nav--tours">
+    <a href="/" class="nav__el nav__el--cta" style="margin-right: 1rem"
+      >All Articles</a
+    >
+    <% if(user && user.role === 'blogger') { %>
+    <a
+      href="/myArticles"
+      class="nav__el nav__el--cta"
+      style="margin-right: 1rem"
+      >My Articles</a
+    >
+    <% } %> <% if(user) { %>
+    <a
+      href="/addArticle"
+      class="nav__el nav__el--cta"
+      style="margin-right: 1rem"
+      >Create New Article
+    </a>
+    <% } %> <% if(user && user.role === 'admin') { %>
+    <a
+      href="/manageUsers"
+      class="nav__el nav__el--cta"
+      style="margin-right: 1rem"
+      >Manage Users
+    </a>
+    <% } %>
+  </nav>
+  <nav class="nav nav--user">
+    <% if(user) { %>
+    <a class="nav__el nav__el--logout" style="text-transform: uppercase;"
+      >Log out</a
+    >
+    <a
+      href="/me"
+      class="nav__el nav__el--cta"
+      style="text-transform: uppercase;"
+    >
+      <span>Profile</span
+      ><img
+        src="/img/users/<%= user.photo %>"
+        alt="User photo"
+        class="nav__user-img"
+        style="margin-left: 1rem"
+      /><span><%= user.firstName %></span>
+    </a>
+    <% } else { %>
+    <a class="nav__el " style="text-transform: uppercase;" href="/login"
+      >Log in</a
+    >
+    <a
+      style="text-transform: uppercase;"
+      class="nav__el nav__el--cta"
+      href="/signup"
+      >Sign up</a
+    >
+    <% } %>
+  </nav>
+</header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/login.js"></script>
+<script src="/js/header.js"></script>

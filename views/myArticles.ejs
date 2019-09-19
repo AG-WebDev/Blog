@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/alertify.custom.css" id="toggleCSS" />
+    <link rel="stylesheet" href="css/alertify.core.css" />
+
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <script src="/js/alert/alertify.min.js"></script>
+    <title>Article Blog | <%= title %></title>
+    <style>
+      .divclass {
+        background: #415665;
+        height: 50px;
+        width: 200px;
+        border-radius: 15px;
+        padding: 20px;
+        font-size: 22px;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <% include header %>
+
+    <!-- CONTENT -->
+    <main class="main">
+      <div class="card-container">
+        <% articles.forEach(article => { %>
+
+        <div class="card">
+          <div class="card__header">
+            <div class="card__picture">
+              <div class="card__picture-overlay">&nbsp;</div>
+              <img
+                src="/img/article-cover/<%= article.imageCover %>"
+                alt="Tour 1"
+                class="card__picture-img"
+              />
+            </div>
+          </div>
+
+          <div class="card__details">
+            <h2 class="card__title"><%= article.title %></h2>
+            <p class="card__text">
+              <%= article.context.slice(0,50) %> ...
+            </p>
+            <div class="card__data">
+              <span>Author: </span>
+            </div>
+            <div class="card__data">
+              <span
+                ><%= article.createdBy.firstName %> <%=
+                article.createdBy.lastName %></span
+              >
+            </div>
+            <div class="card__data">
+              <span>ٌPosted On:</span>
+            </div>
+            <div class="card__data">
+              <span
+                ><%= article.createdAt.toLocaleString('en-us', {day: 'numeric',
+                month: 'long', year: 'numeric'}) %></span
+              >
+            </div>
+          </div>
+
+          <div class="card__footer">
+            <a
+              href="/article/<%= article.slug %>"
+              class="btn btn--green btn--small"
+              >Details</a
+            >
+            <a
+              href="/editArticle/<%= article.slug %>"
+              class="btn btn--blue btn--verySmall"
+              >Edit</a
+            >
+
+            <button
+              id="delete-<%= article.id %>"
+              class="btn btn--red btn--verySmall"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="/js/myArticle.js"></script>
+  </body>
+</html>
