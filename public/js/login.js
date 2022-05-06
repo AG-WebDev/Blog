@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:4000/api/users/login',
+      url: '/api/users/login',
       dataType: 'json',
       data: {
         username,
@@ -40,7 +40,7 @@ $(document).ready(function() {
     e.preventDefault();
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:4000/api/users/logout',
+      url: '/api/users/logout',
       success: function(response) {
         if (response.status === 'success') {
           location.assign('/');
