@@ -3,6 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Article Blog" />
+    <meta property="og:site_name" content="Article Blog" />
+    <meta property="og:description" content="simple blog" />
+    <meta property="og:url" content="https://js-blog.glitch.me" />
+    <meta
+      property="og:image"
+      content="img/101b5673bf684f2b9af6b090c81b43f7.png"
+    />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Article Blog" />
+    <meta name="twitter:description" content="simple blog" />
+    <meta
+      name="twitter:image"
+      content="img/101b5673bf684f2b9af6b090c81b43f7.png"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Lato:300,300i,700"
       rel="stylesheet"
@@ -29,7 +47,7 @@
 
   <body>
     <!-- HEADER -->
-    <% include header %>
+    <%- include('header'); -%>
 
     <!-- CONTENT -->
     <main class="main">
@@ -50,9 +68,7 @@
 
           <div class="card__details">
             <h2 class="card__title"><%= article.title %></h2>
-            <p class="card__text">
-              <%= article.context.slice(0,50) %> ...
-            </p>
+            <p class="card__text"><%= article.context.slice(0,50) %> ...</p>
             <div class="card__data">
               <span>Author: </span>
             </div>
