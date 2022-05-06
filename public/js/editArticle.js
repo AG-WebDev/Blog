@@ -10,7 +10,7 @@ $(document).ready(function() {
     }
     axios({
       method: 'PATCH',
-      url: `http://localhost:4000/api/articles/${id}`,
+      url: `/api/articles/${id}`,
       data: form
     })
       .then(function(response) {

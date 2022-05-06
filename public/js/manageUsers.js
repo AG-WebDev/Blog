@@ -9,7 +9,7 @@ $(document).ready(function() {
         if (e) {
           $.ajax({
             type: 'DELETE',
-            url: `http://localhost:4000/api/users/${userId}`,
+            url: `/api/users/${userId}`,
             data: 'data',
             success: function(response) {
               showAlert('success', 'Blogger deleted successfully!');
@@ -34,7 +34,7 @@ $(document).ready(function() {
         if (e) {
           $.ajax({
             type: 'PATCH',
-            url: `http://localhost:4000/api/users/passwordRecoveryByAdmin`,
+            url: `/api/users/passwordRecoveryByAdmin`,
             data: {
               id: userId,
               password: userMobile,

@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: 'POST',
-      url: `http://localhost:4000/api/articles/${id}/comments`,
+      url: `/api/articles/${id}/comments`,
       dataType: 'json',
       data: {
         commentText
@@ -27,7 +27,7 @@ $(document).ready(function() {
     e.preventDefault();
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:4000/api/users/logout',
+      url: '/api/users/logout',
       success: function(response) {
         if (response.status === 'success') {
           location.assign('/');
@@ -44,7 +44,7 @@ $(document).ready(function() {
     const id = $(this).attr('id');
     $.ajax({
       type: 'DELETE',
-      url: `http://localhost:4000/api/comments/${id}`,
+      url: `/api/comments/${id}`,
       success: function(response) {
         if (response === undefined) {
           showAlert('success', 'Comment deleted successfully.');

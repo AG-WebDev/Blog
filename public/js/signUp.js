@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     axios({
       method: 'POST',
-      url: 'http://localhost:4000/api/users/signup',
+      url: '/api/users/signup',
       data: {
         firstName,
         lastName,

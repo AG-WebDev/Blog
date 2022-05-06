@@ -7,7 +7,7 @@ $(document).ready(function() {
     form.append('imageCover', document.getElementById('imageCover').files[0]);
     axios({
       method: 'POST',
-      url: 'http://localhost:4000/api/articles',
+      url: '/api/articles',
       data: form
     })
       .then(function(response) {

@@ -9,7 +9,7 @@ $(document).ready(function() {
       if (e) {
         $.ajax({
           type: 'DELETE',
-          url: `http://localhost:4000/api/articles/${articleId}`,
+          url: `/api/articles/${articleId}`,
           data: 'data',
           success: function(response) {
             window.setTimeout(() => {

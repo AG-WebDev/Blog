@@ -10,7 +10,7 @@ $(document).ready(function() {
     form.append('photo', document.getElementById('photo').files[0]);
     axios({
       method: 'PATCH',
-      url: 'http://localhost:4000/api/users/updateMe',
+      url: '/api/users/updateMe',
       data: form
     })
       .then(function(response) {
@@ -48,7 +48,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: 'PATCH',
-      url: 'http://localhost:4000/api/users/updateMyPassword',
+      url: '/api/users/updateMyPassword',
       data: {
         passwordCurrent,
         password,
