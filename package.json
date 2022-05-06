@@ -1,7 +1,7 @@
 {
-  "name": "blog",
+  "name": "js-blog",
   "version": "1.0.0",
-  "description": "a blog site with node express and mongodb",
+  "description": "a js blog with node express and mongodb",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon server.js",
